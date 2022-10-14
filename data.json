@@ -1,0 +1,26 @@
+{
+  "clients": [
+    {
+      "id": 100,
+      "balance": 0
+    },
+    {
+      "id": 101,
+      "balance": 100
+    },
+    {
+      "id": 102,
+      "balance": 20
+    }
+],
+  "suppliers": [
+    {
+      "id": 100,
+      "status": "disable"
+    },
+    {
+      "id": 200,
+      "status": "enable"
+    }
+  ]
+}
