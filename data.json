@@ -12,15 +12,15 @@
       "id": 102,
       "balance": 20
     }
-],
-  "suppliers": [
+  ],
+  "providers":[
     {
-      "id": 100,
-      "status": "disable"
+      "id":10,
+      "status":"enabled"
     },
     {
-      "id": 200,
-      "status": "enable"
+      "id":20,
+      "status":"disabled"
     }
   ]
 }
