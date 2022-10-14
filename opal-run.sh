@@ -19,7 +19,7 @@ podman run -d --name  ${podname}-opal_server --pod ${podname} --expose 7002 \
   -e OPAL_LOG_FORMAT_INCLUDE_PID=true \
   -e OPAL_DATA_CONFIG_SOURCES='{"config":{"entries":[{"url":"http://127.0.0.1:7002/policy-data","topics":["policy_data"],"dst_path":"/static"}]}} '\
   -e OPAL_POLICY_REPO_POLLING_INTERVAL=30 \
-  -e OPAL_POLICY_REPO_URL=https://github.com/yledovskikh/opa-policy \
+  -e OPAL_POLICY_REPO_URL=https://github.com/permitio/opal-example-policy-repo \
   -e UVICORN_NUM_WORKERS=4 \
   permitio/opal-server:latest
 #
