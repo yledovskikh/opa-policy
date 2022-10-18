@@ -5,7 +5,7 @@ default is_enabled_provider := false
 
 allow{
     is_client_operation
-    is_enabled_provider
+#    is_enabled_provider
 }
 
 
