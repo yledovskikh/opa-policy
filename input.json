@@ -1,8 +1,8 @@
   {
-    "supplier_id": "10",
+    "supplier_id": 10,
     "service": "balance",
     "operation": "PUT",
-    "client_id": "100"
+    "client_id": 100
   }
 
 
