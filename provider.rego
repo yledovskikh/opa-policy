@@ -8,16 +8,12 @@ allow{
     is_enabled_provider
 }
 
-allow{
-    "aa" == "aa"
-}
 
 is_client_operation {
 	some i
-	client_id:=input.client_id
-	client_id == data.clients[i].id
+	input.client_id == data.clients[i].id
     data.clients[i].balance == 0
-    input.operation != "PUT"
+    input.operation == "PUT"
 }
 
 is_enabled_provider {
