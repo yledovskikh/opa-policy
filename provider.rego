@@ -9,7 +9,9 @@ allow {
 #    is_enabled_provider
 }
 
-
+intput[tt]{
+tt := input.client_id
+}
 is_client_operation {
 	some i
 #	input.client_id == 100
