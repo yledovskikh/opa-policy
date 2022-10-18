@@ -10,7 +10,7 @@ allow {
 }
 
 intput[tt]{
-tt := input.client_id
+tt := input
 }
 is_client_operation {
 	some i
