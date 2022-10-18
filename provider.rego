@@ -12,7 +12,8 @@ allow {
 
 is_client_operation {
 	some i
-	input.client_id == data.clients[i].id
+	input.client_id == 100
+#	input.client_id == data.clients[i].id
 #    data.clients[i].balance == 0
 #    input.operation == "PUT"
 }
