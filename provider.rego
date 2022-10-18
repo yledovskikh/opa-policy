@@ -1,7 +1,8 @@
 package provider
 
 default allow = false                              # unless otherwise defined, allow is false
-default is_enabled_provider := false
+default is_enabled_provider = false
+default is_client_operation = false
 
 allow {
     is_client_operation
@@ -12,8 +13,8 @@ allow {
 is_client_operation {
 	some i
 	input.client_id == data.clients[i].id
-    data.clients[i].balance == 0
-    input.operation == "PUT"
+#    data.clients[i].balance == 0
+#    input.operation == "PUT"
 }
 
 is_enabled_provider {
