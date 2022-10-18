@@ -1,7 +1,7 @@
 package provider
 
-#default allow = false                              # unless otherwise defined, allow is false
-#default is_enabled_provider := false
+default allow = false                              # unless otherwise defined, allow is false
+default is_enabled_provider := false
 
 allow {
     is_client_operation
