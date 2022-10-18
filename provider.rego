@@ -9,7 +9,7 @@ allow {
 #    is_enabled_provider
 }
 
-intput[tt]{
+int1[tt]{
 tt := input
 }
 is_client_operation {
