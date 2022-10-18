@@ -11,7 +11,7 @@ podman pod create \
   -p 7002:7002 -p 7000:7000 -p 8181:8181
 
 podman run -d --name  ${podname}-broadcast_channel --pod ${podname} \
-  -e POSTGRES_DB=postgres -e POSTGRES_USER=postgres -e POSTGRES_USER=postgres \
+  -e POSTGRES_DB=postgres -e POSTGRES_USER=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password \
   postgres:alpine
 
 podman run -d --name  ${podname}-opal_server --pod ${podname} --expose 7002 \
@@ -19,7 +19,7 @@ podman run -d --name  ${podname}-opal_server --pod ${podname} --expose 7002 \
   -e OPAL_LOG_FORMAT_INCLUDE_PID=true \
   -e OPAL_DATA_CONFIG_SOURCES='{"config":{"entries":[{"url":"http://127.0.0.1:7002/policy-data","topics":["policy_data"],"dst_path":"/static"}]}} '\
   -e OPAL_POLICY_REPO_POLLING_INTERVAL=30 \
-  -e OPAL_POLICY_REPO_URL=https://github.com/permitio/opal-example-policy-repo \
+  -e OPAL_POLICY_REPO_URL=https://github.com/yledovskikh/opa-policy \
   -e UVICORN_NUM_WORKERS=4 \
   permitio/opal-server:latest
 #

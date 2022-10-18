@@ -1,7 +1,7 @@
 package provider
 
-default allow  := false                              # unless otherwise defined, allow is false
-default is_enabled_provider := false
+#default allow  := false                              # unless otherwise defined, allow is false
+#default is_enabled_provider := false
 
 allow{
     is_client_operation
@@ -15,8 +15,6 @@ is_client_operation {
     data.clients[i].balance == 0
     input.operation != "PUT"
 }
-
-
 
 is_enabled_provider {
 	input.provider_id == data.providers[i].id
