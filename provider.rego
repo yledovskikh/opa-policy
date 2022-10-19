@@ -2,18 +2,20 @@ package provider
 
 default allow = false                              # unless otherwise defined, allow is false
 default is_enabled_provider = false
-default is_client_operation = false
+# default is_client_operation = false
 
 allow {
-    is_client_operation
+    count(is_client_operation)
 #    is_enabled_provider
 }
 
-int1[tt]{
-tt := input.client_id
-}
-is_client_operation {
+#int1[tt]{
+#tt := input.client_id
+#}
+is_client_operation[id] {
 	some i
+
+	id := input.client_id
 #	input.client_id == 100
 #	input.client_id == 100
 	100 == data.clients[i].id
