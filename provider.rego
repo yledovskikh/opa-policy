@@ -15,7 +15,7 @@ allow {
 is_client_operation[id] {
 	some i
 
-	id := input
+	id := input.client_id
 #	input.client_id == 100
 #	input.client_id == 100
 	100 == data.clients[i].id
