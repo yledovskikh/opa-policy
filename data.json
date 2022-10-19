@@ -1,28 +1,4 @@
 {
-  "clients": [
-    {
-      "id": 100,
-      "balance": 0
-    },
-    {
-      "id": 101,
-      "balance": 100
-    },
-    {
-      "id": 102,
-      "balance": 20
-    }
-  ],
-  "providers":[
-    {
-      "id":10,
-      "status":"enabled"
-    },
-    {
-      "id":20,
-      "status":"disabled"
-    }
-  ],
   "users": {
     "alice": {
       "roles": ["admin"],
