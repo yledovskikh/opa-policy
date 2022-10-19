@@ -1,8 +1,1 @@
-  {
-    "supplier_id": 10,
-    "service": "balance",
-    "operation": "PUT",
-    "client_id": 100
-  }
-
-
+{"input": {"user": "bob","action": "read","object": "id123","type": "finance"}}
