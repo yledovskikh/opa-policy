@@ -89,5 +89,5 @@ user_is_granted[permission] {
 }
 
 user_info[name] {
-    name := data.cities.result[0]
+    name := cities.result[0]
 }
