@@ -89,5 +89,5 @@ user_is_granted[permission] {
 }
 
 user_info[name] {
-    name := input.user
+    name := data.result[0]
 }

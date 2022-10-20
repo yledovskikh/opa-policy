@@ -17,18 +17,20 @@ podman run -d --name  ${podname}-broadcast_channel --pod ${podname} \
 podman run -d --name  ${podname}-opal_server --pod ${podname} --expose 7002 \
   -e OPAL_BROADCAST_URI=postgres://postgres:postgres@127.0.0.1:5432/postgres \
   -e OPAL_LOG_FORMAT_INCLUDE_PID=true \
-  -e OPAL_DATA_CONFIG_SOURCES='{"config":{"entries":[{"url":"http://127.0.0.1:7002/policy-data","topics":["policy_data"],"dst_path":"/static"}]}} '\
   -e OPAL_POLICY_REPO_POLLING_INTERVAL=30 \
   -e OPAL_POLICY_REPO_URL=https://github.com/yledovskikh/opa-policy \
   -e UVICORN_NUM_WORKERS=4 \
+  -e OPAL_DATA_CONFIG_SOURCES='{"config":{"entries":[{"url":"postgres://postgres@192.168.104.55:15432/postgres","config":{"fetcher":"PostgresFetchProvider","query":"SELECT * from city;","connection_params":{"password":"password"}},"topics":["policy_data"],"dst_path":"cities"}]}}' \
   permitio/opal-server:latest
+
+#  -e OPAL_DATA_CONFIG_SOURCES='{"config":{"entries":[{"url":"http://127.0.0.1:7002/policy-data","topics":["policy_data"],"dst_path":"/static"}]}} '\
 #
 podman run -d --name  ${podname}-opal_client --pod ${podname} --expose 7000 --expose 8181 \
        -e OPAL_SERVER_URL=http://127.0.0.1:7002 \
+       -e OPAL_FETCH_PROVIDER_MODULES=opal_common.fetcher.providers,opal_fetcher_postgres.provider \
        -e OPAL_LOG_FORMAT_INCLUDE_PID=true \
        -e OPAL_INLINE_OPA_LOG_FORMAT=http \
-       -e OPAL_FETCH_PROVIDER_MODULES=opal_common.fetcher.providers,opal_fetcher_postgres.provider \
-       permitio/opal-client:latest \
+       opal-fetch-postgree:latest \
        sh -c "./wait-for.sh 127.0.0.1:7002 --timeout=20 -- ./start.sh"
 
 
