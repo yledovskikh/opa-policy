@@ -27,6 +27,7 @@ podman run -d --name  ${podname}-opal_client --pod ${podname} --expose 7000 --ex
        -e OPAL_SERVER_URL=http://127.0.0.1:7002 \
        -e OPAL_LOG_FORMAT_INCLUDE_PID=true \
        -e OPAL_INLINE_OPA_LOG_FORMAT=http \
+       -e OPAL_FETCH_PROVIDER_MODULES=opal_common.fetcher.providers,opal_fetcher_postgres.provider \
        permitio/opal-client:latest \
        sh -c "./wait-for.sh 127.0.0.1:7002 --timeout=20 -- ./start.sh"
 
